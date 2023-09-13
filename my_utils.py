@@ -1,4 +1,4 @@
-def get_column(file_name, region, savannh_faires, forest_fires, org_Fire, hum_fire, result_column):
+def get_column(file_name, region, savannh_faires, forest_fires, org_Fire, hum_fire, result_column=1):
     with open(file_name, "r+") as my_file:
         next(my_file)
         result_column = []
