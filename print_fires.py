@@ -1,10 +1,10 @@
 import my_utils as muts
-country='United States of America'
-county_column = 1
-fires_column = 4
+region='United States of America'
+savannh_faires = 2
+forest_fires = 3
+org_Fire = 23
+hum_fire = 24
+result_column = []
 file_name = 'Agrofood_co2_emission.csv'
-query_column=county_column 
-query_value=fires_column 
-result_column=query_value
-fires = muts.get_column(file_name,county_column,fires_column,result_column)
+fires = muts.get_column(file_name, region, savannh_faires, forest_fires, org_Fire, hum_fire, result_column)
 print(fires)
