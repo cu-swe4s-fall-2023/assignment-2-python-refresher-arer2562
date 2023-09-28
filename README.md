@@ -6,6 +6,10 @@ Final commit - this will help you pull in file to read and then determine sum of
 In final version default of results_column is 1.
 Edited my_utils, print_fire as well.
 
+Assn3
+
+Gitclone repo!!
+
 FIND AGROFOOD SHEET BEFORE YOU START
 
 Updated to follow pycodestyle with one exception in print_fires that required shrinking variable names to point of being uninformative.
