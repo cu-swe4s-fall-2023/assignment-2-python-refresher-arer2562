@@ -6,6 +6,8 @@ Final commit - this will help you pull in file to read and then determine sum of
 In final version default of results_column is 1.
 Edited my_utils, print_fire as well.
 
+FIND AGROFOOD SHEET BEFORE YOU START
+
 Updated to follow pycodestyle with one exception in print_fires that required shrinking variable names to point of being uninformative.
 
 Run fires takes in file in SAME directory as long as you spell name correctly. To use file in different directory use your full path. 
