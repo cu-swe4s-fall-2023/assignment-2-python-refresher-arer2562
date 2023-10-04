@@ -1,3 +1,6 @@
+import statistics as stats
+
+
 def main(fn, cont, cont_col, sav_fir, for_fir, org_Fir, hum_fir, fir_col=1):
     try:
         f = open(fn, "r+")
@@ -26,9 +29,49 @@ def main(fn, cont, cont_col, sav_fir, for_fir, org_Fir, hum_fir, fir_col=1):
                     print('Skipping non-int value ' + fir_col[i])
                 finally:
                     int_fires_column.append(fir_col[i])
-            fir_col = sum(int_fires_column)
+            fir_col = int_fires_column
+            print(sum(fir_col))
 
-    return (fir_col)
+    return fir_col
+
+
+def cal_mean(fir_col, mean):
+    try:
+        int_fir_col = [int(x) for x in fir_col if isinstance(x, (int, float))]
+        if not int_fir_col:
+            raise ValueError('No Valid integer values in input list')
+        mean = stats.mean(int_fir_col)
+        return mean
+    except (TypeError, ValueError) as e:
+        print(f"Error: {e}")
+        return None
+
+
+def cal_med(fir_col, med):
+    try:
+        int_fir_col = [int(x) for x in fir_col if isinstance(x, (int, float))]
+        if not int_fir_col:
+            raise ValueError('No Valid integer values in input list')
+        med = stats.median(fir_col)
+        print(med)
+        return(med)
+    except (TypeError, ValueError) as e:
+        print(f"Error: {e}")
+        return None
+
+
+def cal_stdev(fir_col):
+    try:
+        numeric_fir_col = [float(x) for x in fir_col if isinstance(x, (int, float))]
+        #  I didnt know how to filter in less words
+        if not numeric_fir_col:
+            raise ValueError('No valid numeric values in the input list')
+        stdev = stats.stdev(numeric_fir_col)
+        return stdev
+
+    except (ValueError, ZeroDivisionError, stats.StatisticsError) as e:
+        print(f'Error: {e}')
+        return None
 
 
 if __name__ == '__main__':

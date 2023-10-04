@@ -36,10 +36,24 @@ parser.add_argument('--fir_col',
                     type=list,
                     help='Add two square brackets',
                     required=True)
+parser.add_argument('--operation',
+                    type=str,
+                    choices=['mean', 'med', 'stdev'],
+                    help='specify the operation mean, med, stdev',
+                    required=True)
 args = parser.parse_args()
 
 
-muts.main(args.fn, args.cont, args.cont_col, args.sav_fir, args.for_fir, args.org_Fir, args.hum_fir)
-# Line above too long, didn't shrink vars again to avoid uninformative vars
+result = muts.main(args.fn, args.cont, args.cont_col, args.sav_fir, args.for_fir, args.org_Fir, args.hum_fir)
+# Line above too long, didn't shrink varis again to avoid uninformative vars
+if args.operation == "mean":
+    mean_result = muts.cal_mean(result, None)
+    print(f"Mean: {mean_result}")
+elif args.operation == "median":
+    median_result = muts.cal_median(result, None)
+    print(f"Median: {median_result}")
+elif args.operation == "stdev":
+    stdev_result = muts.cal_stdev(result)
+    print(f"Standard Deviation: {stdev_result}")
 
 print(args.fn, args.cont, args.fir_col)
