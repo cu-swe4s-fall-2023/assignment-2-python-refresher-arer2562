@@ -25,3 +25,9 @@ Print_fires.py contains arg parse information to parse out inputs from run shell
 my_utils is python script to actually define main funciton used to count and sum all fires in country and conditions from run shell script.
 
 Final commit will be tagged V2 to correspond to changes and new update. 
+
+
+Now added descriptive stats to my_utils and funcitonal and unit tests.
+Subsetted data to contain only fires into new csv called subsetted_data
+
+Final commit will be tagged V2 to correspond to changes and new update.
