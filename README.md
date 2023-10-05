@@ -30,4 +30,16 @@ Final commit will be tagged V2 to correspond to changes and new update.
 Now added descriptive stats to my_utils and funcitonal and unit tests.
 Subsetted data to contain only fires into new csv called subsetted_data
 
-Final commit will be tagged V2 to correspond to changes and new update.
+Unit test and functional test hard coded in can run functional test with: 
+
+bash fun_test.sh
+
+Unit test is:
+
+python test_my_utils.py
+
+Unit tests runs on Agro_food file from google drive.
+Functional tests run on subsetted_data.csv in this directory
+Subsetted dataset made with subset.py that will require Agro_food sheet to subset.
+
+Final commit will be tagged V4 to correspond to changes and new update.
