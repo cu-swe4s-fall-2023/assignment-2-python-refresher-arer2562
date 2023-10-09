@@ -17,7 +17,16 @@ class TestCalc(unittest.TestCase):
         Test for main.
         """
         file_path = 'Agrofood_co2_emission.csv'
-        result = my_utils.main(fir_col=[1], fn=file_path, cont='United States of America', cont_col=0, sav_fir=2, for_fir=3, org_Fir=22, hum_fir=23)
+        result = my_utils.main(
+            fir_col=[1], 
+            fn=file_path, 
+            cont='United States of America', 
+            cont_col=0, 
+            sav_fir=2, 
+            for_fir=3, 
+            org_Fir=22, 
+            hum_fir=23
+        )
         self.assertEqual(result, 103213)
 
     def test_cal_mean_positive_random(self):
