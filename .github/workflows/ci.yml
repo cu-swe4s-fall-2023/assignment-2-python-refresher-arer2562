@@ -34,5 +34,5 @@ jobs:
         working-directory: ${{ github.workspace }}
 
       - name: Run style checks
-        run: pylint ../test_my_utils.py # Adjust the path and command for style checks
+        run: pylint test_my_utils.py # Adjust the path and command for style checks
 
