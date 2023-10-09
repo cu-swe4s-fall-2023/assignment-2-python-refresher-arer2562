@@ -16,20 +16,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          node-version: '14' # You can specify the Node.js version you need
+          python-version: '3.x' # You can specify the Python version you need
 
       - name: Install dependencies
-        run: npm install
+        run: pip install -r requirements.txt # Assuming you have a requirements.txt file
 
       - name: Run unit tests
-        run: npm run test # Adjust the command to run your unit tests
+        run: python ../test_my_utils.py # Adjust the path and command as needed
 
       - name: Run functional tests
-        run: npm run functional-test # Adjust the command to run your functional tests
+        run: ../fun_test.sh # Adjust the path as needed
 
       - name: Run style checks
-        run: npm run lint # Adjust the command to run your style checks
+        run: pylint ../test_my_utils.py # Adjust the path and command for style checks
 
