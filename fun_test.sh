@@ -1,3 +1,4 @@
+#!/bin/bash
 . ssshtest
 
 run test_mean_operation python print_fires.py --fn subsetted_data.csv --cont 'United States of America' --cont_col 0 --sav_fir 1 --for_fir 2 --org_Fir 3 --hum_fir 4 --fir_col '' --operation mean
