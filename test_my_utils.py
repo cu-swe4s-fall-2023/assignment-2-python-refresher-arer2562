@@ -3,6 +3,7 @@ import statistics as stats
 import random
 import my_utils
 
+
 class TestCalc(unittest.TestCase):
     def test_main(self):
         file_path = 'Agrofood_co2_emission.csv'
@@ -31,12 +32,12 @@ class TestCalc(unittest.TestCase):
 
     def test_cal_stdev_positive_random(self):
         fir_col = [random.randint(1, 10000) for _ in range(10)]
-        result = my_utils.cal_stdev(fir_col, stdev=None)
+        result = my_utils.cal_stdev(fir_col)
         self.assertEqual(result, stats.stdev(fir_col))
 
     def test_cal_stdev_negative(self):
         fir_col = ['one', 'six', '7']
-        result = my_utils.cal_stdev(fir_col, stdev=None)
+        result = my_utils.cal_stdev(fir_col)
         self.assertIsNone(result)
 
 
