@@ -1,8 +1,7 @@
 import unittest
-import my_utils
 import statistics as stats
 import random
-
+import my_utils
 
 class TestCalc(unittest.TestCase):
     def test_main(self):
