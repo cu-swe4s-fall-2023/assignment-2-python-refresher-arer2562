@@ -41,4 +41,4 @@ class TestCalc(unittest.TestCase):
 
 
 if __name__ == '___main__':
-    unnittest.main()
+    unittest.main()
