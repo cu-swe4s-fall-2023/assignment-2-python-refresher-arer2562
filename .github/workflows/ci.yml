@@ -30,7 +30,7 @@ jobs:
       - name: Run functional tests
         run: |
           chmod +x fun_test.sh
-          ./fun_test.sh 
+          ./fun_histo_test.sh 
         working-directory: ${{ github.workspace }}
 
       - name: Run style checks
