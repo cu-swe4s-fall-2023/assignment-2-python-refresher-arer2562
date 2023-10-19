@@ -26,12 +26,12 @@ def read_data(data_file):
                     hum_fir = float(row[4])
             except ValueError as e:
                 raise ValueError(
-                    f"Skip row with non-numeric values: {row}")
-            finally:
-                data[country][0] += sav_fir
-                data[country][1] += for_fir
-                data[country][2] += org_fir
-                data[country][3] += hum_fir
+                    f"Failed to convert a value to float in row {row}: {e}")
+
+            data[country][0] += sav_fir
+            data[country][1] += for_fir
+            data[country][2] += org_fir
+            data[country][3] += hum_fir
 
     with open('red_data.txt', 'w') as out_file:
         writer = csv.writer(out_file)
@@ -42,8 +42,8 @@ def read_data(data_file):
                          'Hum_Fir'])
         for country, values in data.items():
             writer.writerow([country] + values)
-
     return data
+
 
 
 def generate_histogram(data, out_dir, title, x_label, y_label):
