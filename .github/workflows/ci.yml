@@ -25,7 +25,7 @@ jobs:
         run: pip install -r requirements.txt # Assuming you have a requirements.txt file
 
       - name: Run unit tests
-        run: python test_my_utils.py # Adjust the path and command as needed
+        run: python hist_un_test.py # Adjust the path and command as needed
 
       - name: Run functional tests
         run: |
@@ -34,5 +34,5 @@ jobs:
         working-directory: ${{ github.workspace }}
 
       - name: Run style checks
-        run: pylint test_my_utils.py # Adjust the path and command for style checks
+        run: pylint hist_un_test.py # Adjust the path and command for style checks
 
