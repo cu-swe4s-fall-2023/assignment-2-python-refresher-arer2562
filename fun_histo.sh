@@ -13,7 +13,7 @@ run "Test read_data with missing values" python fires_by_country.py --data_file 
 assert_no_stdout
 
 run "Test read_data with non-numeric values" python fires_by_country.py --data_file test_non_numeric_values.csv --out_dir histograms --title "Fires by Country" --x_label "Country" --y_label "Number of Fires"
-assert_no_stderr
+assert_stderr
 
 
 
