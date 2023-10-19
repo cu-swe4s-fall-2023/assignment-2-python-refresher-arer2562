@@ -1,0 +1,50 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+download_data              1
+generate_histograms        4
+read_data                  1
+subset_data                1
+total                      8
+
+Select jobs to execute...
+
+[Thu Oct 19 17:59:27 2023]
+rule download_data:
+    output: Agrofood_co2_emission.csv
+    jobid: 4
+    reason: Missing output files: Agrofood_co2_emission.csv
+    resources: tmpdir=/tmp
+
+[Thu Oct 19 17:59:27 2023]
+Finished job 4.
+1 of 8 steps (12%) done
+Select jobs to execute...
+
+[Thu Oct 19 17:59:27 2023]
+rule subset_data:
+    input: Agrofood_co2_emission.csv
+    output: subsetted_data.csv
+    jobid: 3
+    reason: Input files updated by another job: Agrofood_co2_emission.csv
+    resources: tmpdir=/tmp
+
+[Thu Oct 19 17:59:27 2023]
+Error in rule subset_data:
+    jobid: 3
+    input: Agrofood_co2_emission.csv
+    output: subsetted_data.csv
+    shell:
+        python subset.py Agrofood_co2_emission.csv
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job subset_data since they might be corrupted:
+subsetted_data.csv
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-10-19T175926.666720.snakemake.log

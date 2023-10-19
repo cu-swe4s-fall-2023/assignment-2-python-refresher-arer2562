@@ -1,0 +1,8 @@
+Building DAG of jobs...
+MissingInputException in rule all in file /home/jovyan/assignment-2-python-refresher-arer2562/by_country.snakemake, line 4:
+Missing input files for rule all:
+    affected files:
+        quartile_4.png
+        quartile_3.png
+        quartile_2.png
+        quartile_1.png

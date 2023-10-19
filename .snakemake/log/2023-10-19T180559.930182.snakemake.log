@@ -1,0 +1,61 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+download_data              1
+generate_histograms        4
+read_data                  1
+subset_data                1
+total                      8
+
+Select jobs to execute...
+
+[Thu Oct 19 18:06:00 2023]
+rule download_data:
+    output: Agrofood_co2_emission.csv
+    jobid: 4
+    reason: Code has changed since last execution
+    resources: tmpdir=/tmp
+
+[Thu Oct 19 18:06:01 2023]
+Finished job 4.
+1 of 8 steps (12%) done
+Select jobs to execute...
+
+[Thu Oct 19 18:06:01 2023]
+rule subset_data:
+    input: Agrofood_co2_emission.csv
+    output: subsetted_data.csv
+    jobid: 3
+    reason: Missing output files: subsetted_data.csv; Input files updated by another job: Agrofood_co2_emission.csv
+    resources: tmpdir=/tmp
+
+[Thu Oct 19 18:06:01 2023]
+Finished job 3.
+2 of 8 steps (25%) done
+Select jobs to execute...
+
+[Thu Oct 19 18:06:01 2023]
+rule read_data:
+    input: subsetted_data.csv
+    output: data_completed.txt
+    jobid: 2
+    reason: Missing output files: data_completed.txt; Input files updated by another job: subsetted_data.csv
+    resources: tmpdir=/tmp
+
+[Thu Oct 19 18:06:01 2023]
+Error in rule read_data:
+    jobid: 2
+    input: subsetted_data.csv
+    output: data_completed.txt
+    shell:
+        python muts.read_data --data_file subsetted_data.csv
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-10-19T180559.930182.snakemake.log

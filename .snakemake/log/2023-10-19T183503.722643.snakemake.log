@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job                    count
+-------------------  -------
+all                        1
+generate_histograms        4
+read_data                  1
+total                      6
+
+Select jobs to execute...
+
+[Thu Oct 19 18:35:04 2023]
+rule read_data:
+    input: subsetted_data.csv
+    output: red_data.txt
+    jobid: 2
+    reason: Missing output files: red_data.txt
+    resources: tmpdir=/tmp
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in rule read_data in file /home/jovyan/assignment-2-python-refresher-arer2562/by_country.snakemake, line 16:
+Job 2  completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+red_data.txt
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-10-19T183503.722643.snakemake.log

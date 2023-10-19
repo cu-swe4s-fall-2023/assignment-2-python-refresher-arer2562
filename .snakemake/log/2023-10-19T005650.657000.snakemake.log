@@ -1,0 +1,38 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job          count
+---------  -------
+read_data        1
+total            1
+
+Select jobs to execute...
+
+[Thu Oct 19 00:56:51 2023]
+rule read_data:
+    input: subsetted_data.csv
+    output: output_data.json
+    jobid: 0
+    reason: Missing output files: output_data.json
+    resources: tmpdir=/tmp
+
+[Thu Oct 19 00:56:51 2023]
+Error in rule read_data:
+    jobid: 0
+    input: subsetted_data.csv
+    output: output_data.json
+
+RuleException:
+TypeError in file /home/jovyan/assignment-2-python-refresher-arer2562/by_country.snakemake, line 12:
+expected str, got function
+  File "/home/jovyan/assignment-2-python-refresher-arer2562/by_country.snakemake", line 12, in __rule_read_data
+  File "/opt/conda/lib/python3.10/string.py", line 161, in format
+  File "/opt/conda/lib/python3.10/string.py", line 165, in vformat
+  File "/opt/conda/lib/python3.10/string.py", line 175, in _vformat
+  File "/opt/conda/lib/python3.10/string.py", line 259, in parse
+  File "/opt/conda/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-10-19T005650.657000.snakemake.log
