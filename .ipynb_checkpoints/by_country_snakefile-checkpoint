@@ -1,0 +1,44 @@
+import argparse
+import math_by_country as muts
+
+rule all:
+    input:
+        expand('{cpiuntry}.png',country=read_countries('countries.txt'))
+
+rule read_data:
+    input:
+        data_file="subsetted_data.csv"
+    output:
+        data="output_data.json"
+    run:
+        # Run the script with appropriate command-line arguments
+        script:
+            """
+            python muts.py read_data --data_file {input.data_file} --output_data {output.data}
+            """
+
+
+rule generate_bar_plot:
+    input:
+        data="output_data.json"
+    output:
+        plot="bar_plot.png"
+    params:
+        title="My Title",
+        x_label="X Label",
+        y_label="Y Label"
+    run:
+        # Run the script with appropriate command-line arguments
+        script:
+            """
+            python muts.py generate_histogram --data_file {input.data} --out_file {output.plot} --title {params.title} --x_label {params.x_label} --y_label {params.y_label}
+            """
+
+
+#ruel get_data:
+#    input:
+#        'file.csv'
+#    output:
+#        '{x}'.couintry_data.txt
+#    shell:
+#        'python get_data.py {input} "{wildcard.x}" "{output}"

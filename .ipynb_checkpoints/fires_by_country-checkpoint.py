@@ -28,4 +28,10 @@ args = parser.parse_args()
 
 if __name__ == "__main__":
     data = muts.read_data(args.data_file)
-    muts.generate_histogram(data, args.out_dir, args.title, args.x_label, args.y_label)  # Updated function call
+    muts.generate_histogram(
+        data,
+        args.out_dir,
+        args.title,
+        args.x_label,
+        args.y_label
+    )  # Updated function call

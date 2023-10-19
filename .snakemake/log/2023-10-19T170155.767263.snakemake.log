@@ -1,0 +1,3 @@
+NameError in file /home/jovyan/assignment-2-python-refresher-arer2562/by_country.snakemake, line 26:
+name 'data' is not defined
+  File "/home/jovyan/assignment-2-python-refresher-arer2562/by_country.snakemake", line 26, in <module>

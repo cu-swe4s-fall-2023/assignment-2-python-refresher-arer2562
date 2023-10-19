@@ -1,6 +1,7 @@
 import statistics as stats
 import matplotlib.pyplot as plt
 
+
 def main(fn, cont, cont_col, sav_fir, for_fir, org_Fir, hum_fir, fir_col=1):
     try:
         f = open(fn, "r+")
@@ -33,6 +34,7 @@ def main(fn, cont, cont_col, sav_fir, for_fir, org_Fir, hum_fir, fir_col=1):
             print(sum(fir_col))
     return fir_col
 
+
 def cal_mean(fir_col, mean):
     try:
         int_fir_col = [int(x) for x in fir_col if isinstance(x, (int, float))]
@@ -43,6 +45,7 @@ def cal_mean(fir_col, mean):
     except (TypeError, ValueError) as e:
         print(f"Error: {e}")
         return None
+
 
 def cal_med(fir_col, med):
     try:
@@ -56,9 +59,11 @@ def cal_med(fir_col, med):
         print(f"Error: {e}")
         return None
 
+
 def cal_stdev(fir_col):
     try:
-        numeric_fir_col = [float(x) for x in fir_col if isinstance(x, (int, float))]
+        numeric_fir_col = [
+            float(x) for x in fir_col if isinstance(x, (int, float))]
         if not numeric_fir_col:
             raise ValueError('No valid numeric values in the input list')
         stdev = stats.stdev(numeric_fir_col)
@@ -66,6 +71,7 @@ def cal_stdev(fir_col):
     except (ValueError, ZeroDivisionError, stats.StatisticsError) as e:
         print(f'Error: {e}')
         return None
+
 
 def generate_histogram(fir_col, out_file, title, x_label, y_label):
     fig, ax = plt.subplots()
@@ -78,8 +84,15 @@ def generate_histogram(fir_col, out_file, title, x_label, y_label):
 
     plt.savefig(out_file, bbox_inches='tight')
 
+
 if __name__ == "__main__":
     if len(sys.argv) != 7:
-        print("Usage: python script.py data_file out_file title x_label y_label column_to_plot")
+        print("Usage: python script.py "
+              "data_file "
+              "out_file "
+              "title "
+              "x_label "
+              "y_label "
+              "column_to_plot")
     else:
         muts.generate_histogram(fir_col, out_file, title, x_label, y_label)

@@ -1,30 +1,50 @@
-import snakemake
 import argparse
 import math_by_country as muts
 
+rule all:
+    input:
+        'histograms/quartile_1.png',
+        'histograms/quartile_2.png',
+        'histograms/quartile_3.png',
+        'histograms/quartile_4.png',
+        'subsetted_data.csv'
+
+rule subset_data:
+    output:
+        'subsetted_data.csv'
+    input:
+        'Agrofood_co2_emission.csv'
+    shell:
+        "python subset.py {input}"
+
 rule read_data:
     input:
-        data_file="subsetted_data.csv"
+        'subsetted_data.csv'
     output:
-        data="output_data.json"
-    run:
-        # Run the script with appropriate command-line arguments
-        script:
-            "python muts.py read_data --data_file {input.data_file} --output_data {output.data}"
+        'red_data.txt'
+    shell:
+        "python math_by_country.py read_data "
+        "--datafile {input} "
+        "--red_data {output}"
 
 
-rule generate_bar_plot:
+def title_lambda(wildcards):
+    return wildcards.q
+
+
+rule generate_histograms:
     input:
-        data="output_data.json"
+        'red_data.txt'
     output:
-        plot="bar_plot.png"
+        'histograms/{q}.png'
     params:
-        title="My Title",
-        x_label="X Label",
-        y_label="Y Label"
-    run:
-        # Run the script with appropriate command-line arguments
-        "python muts.py generate_histogram --data_file {input.data} --out_file {output.plot} --title {params.title} --x_label {params.x_label} --y_label {params.y_label}"
-
-
-
+        title = title_lambda,
+        x_label = "X Label",
+        y_label = "Y Label"
+    shell:
+        "python math_by_country.py generate_histogram "
+        "--data_file {input} "
+        "--out_file {output} "
+        "--title {params.title} "
+        "--x_label {params.x_label} "
+        "--y_label {params.y_label}"
