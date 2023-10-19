@@ -1,0 +1,34 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job          count
+---------  -------
+read_data        1
+total            1
+
+Select jobs to execute...
+
+[Thu Oct 19 00:59:31 2023]
+rule read_data:
+    input: subsetted_data.csv
+    output: output_data.json
+    jobid: 0
+    reason: Missing output files: output_data.json
+    resources: tmpdir=/tmp
+
+[Thu Oct 19 00:59:31 2023]
+Error in rule read_data:
+    jobid: 0
+    input: subsetted_data.csv
+    output: output_data.json
+
+RuleException:
+NameError in file /home/jovyan/assignment-2-python-refresher-arer2562/by_country.snakemake, line 12:
+The name 'input' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}
+  File "/home/jovyan/assignment-2-python-refresher-arer2562/by_country.snakemake", line 12, in __rule_read_data
+  File "/opt/conda/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-10-19T005930.731750.snakemake.log

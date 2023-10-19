@@ -1,0 +1,2 @@
+SyntaxError in file /home/jovyan/assignment-2-python-refresher-arer2562/by_country.smk, line 36:
+No rule keywords allowed after run/shell/script/notebook/wrapper/template_engine/cwl in rule fires_by_country. (by_country.smk, line 36)

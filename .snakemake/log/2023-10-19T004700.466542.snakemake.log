@@ -1,0 +1,2 @@
+SyntaxError in file /home/jovyan/assignment-2-python-refresher-arer2562/by_country.snakemake, line 23:
+Multiple run/shell/script/notebook/wrapper/template_engine/cwl keywords in rule generate_bar_plot. (by_country.snakemake, line 23)
