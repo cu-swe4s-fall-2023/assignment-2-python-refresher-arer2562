@@ -3,5 +3,3 @@ argparse
 pylint
 matplotlib
 numpy
-collections
-csv
