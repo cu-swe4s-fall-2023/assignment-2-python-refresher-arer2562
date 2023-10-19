@@ -26,7 +26,7 @@ def read_data(data_file):
                     hum_fir = float(row[4])
             except ValueError as e:
                 raise ValueError(
-                    f"Skip row with non-numeric values: {row}")
+                    f"Failed to convert a value to float in row {row}: {e}")
 
             data[country][0] += sav_fir
             data[country][1] += for_fir

@@ -52,3 +52,32 @@ Now .github workflows works to allow test c1.yml
 This edit is testing if it workks
 Updated to run in accorance to pylint
 final release tagged as v5.0
+
+
+Science fair paragraph.
+Assn6.1 is for assignment 6.1.
+
+The goal: gather preliminary evidence to write grant funding lawsuit again world leaders for evnironmental negligence. 
+
+Data:
+To do so we have downloaded data from the UN on countries Agrucuulutre and co2 emmisions.
+
+Approach:
+The data have been subsetted for just fires in each country. Following that, we have split the countries into quartiles based on number of fires.
+
+Result:
+Indonesia and Zimbabwe are at the top of the most negligent countries based on this analysis.
+
+Limitation:
+
+This analysis does not correct for number of fires or amount of forestry in regions. Thus resutls could be quite biased. 
+
+This should run through snakemake.
+
+If not run_by_country with provide args for fires_by_country to parse and drop into math_by_country.
+
+
+Here you will get to work on making histograms for each country ranked in quartiels by total number of fires. 
+
+
+

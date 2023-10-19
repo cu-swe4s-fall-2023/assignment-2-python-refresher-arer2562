@@ -66,7 +66,8 @@ class TestReadDataFunction(unittest.TestCase):
         data = muts.read_data(test_csv)
 
         # Assert that non-numeric values are handled correctly
-        self.assertIsNone(data)
+        with self.assertRaises(ValueError):
+            data = muts.read_data(test_csv)
 
 class TestGenerateHistogram(unittest.TestCase):
     def test_generate_histogram(self):
