@@ -1,0 +1,41 @@
+name: Automated Testing
+
+on:
+  push:
+    branches:
+      - '*' # Trigger on any branch push
+  pull_request:
+    branches:
+      - main # Trigger on pull requests to the main branch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v1
+        with:
+          r-version: '4.x' # You can specify the R version you need
+
+      - name: Install R Dependencies
+        run: |
+          Rscript -e 'BiocManager::install("ComplexHeatmap")'
+          Rscript -e 'install.packages(c("Seurat", "dplyr", "tidyr", "svMisc", "cowplot", "ggplot2", "pheatmap", "reshape2", "gridExtra", "RColorBrewer", "ivmte", "viridis", "palettetown"))'
+          Rscript -e 'install.packages(c("corrplot", "Hmisc", "corrr", "ggcorrplot"))'
+          Rscript -e 'install.packages(c("FactoMineR", "stringr", "ggpubr"))'
+          Rscript -e 'install.packages(c("lintr", "testthat"))'
+
+      - name: Run unit tests
+        run: Rscript -e 'testthat::test_file("test/test_my_code.R")' # Adjust the path and command as needed
+      
+      - name: Continue on failure
+        if: failure()
+        run: echo "Unit tests failed but the pipeline will continue."
+
+      - name: Run style checks
+        run: Rscript -e 'lintr::lint_dir("R/")' # Adjust the path and command for style checks
+
