@@ -63,7 +63,6 @@ class TestReadDataFunction(unittest.TestCase):
             writer.writerow(["USA", "10", "20", "xyz", "30"])
             writer.writerow(["Canada", "15", "abc", "25", "35"])
 
-        #data = muts.read_data(test_csv)
 
         # Assert that non-numeric values are handled correctly
         self.assertRaises(ValueError,muts.read_data, test_csv)
