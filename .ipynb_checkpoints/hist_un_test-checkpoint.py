@@ -63,11 +63,11 @@ class TestReadDataFunction(unittest.TestCase):
             writer.writerow(["USA", "10", "20", "xyz", "30"])
             writer.writerow(["Canada", "15", "abc", "25", "35"])
 
-        data = muts.read_data(test_csv)
+        #data = muts.read_data(test_csv)
 
         # Assert that non-numeric values are handled correctly
-        with self.assertRaises(ValueError):
-            data = muts.read_data(test_csv)
+        self.assertRaises(ValueError,muts.read_data, test_csv)
+            
 
 class TestGenerateHistogram(unittest.TestCase):
     def test_generate_histogram(self):
